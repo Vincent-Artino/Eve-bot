@@ -14,9 +14,6 @@ app.use(express.static(path.join(__dirname)));
 app.use(bodyParser.json());
 var location = []
 access_token="EAAa0iZA9oDAoBAMqL4bunYAk5nggYamt9G6xmmGf3UaPJItcxe8nJ1us4op6g73TGZA1CtASIcg3yQcJiZAub0aRuBk0mZAnNHpIB2YhgQYFqhvwzRO8sB6TtZAW39oylmO7NiZCTYswABfsL35UaYtm9SzGUDTYZAEAICDz4B32QZDZD";
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname+'/views/index.html'));
-});
 app.get('/webhook', function(req, res) {
   if (req.query['hub.mode'] === 'subscribe' &&
       req.query['hub.verify_token'] === 'Vincent') {
