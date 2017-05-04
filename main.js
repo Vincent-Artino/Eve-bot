@@ -25,4 +25,62 @@ app.get('/webhook', function(req, res) {
   }  
 });
 console.log("Bahubali !")
+app.post('/webhook', function (req, res) {
+	var data = req.body;
+	if(data.object === 'page'){
+	data.entry.forEach(function(entry){
+		var pageId = entry.id;
+		var time = entry.time;
+		entry.messaging.forEach(function(event){
+		if(event.message){
+			receivedMessage(event);		
+		}
+		
+	});
+});
+
+res.sendStatus(200);
+        
+}
+});
+function receivedMessage(event){
+	var message = event.message;
+	var senderID = event.sender.id;
+	var messageText = message.text;
+	var messageAttachments = message.attachments 
+	console.log(messageAttachments)
+	if(messageText){
+		
+		sendTextMessage(senderID,"test")
+	}
+	
+	else{
+	console.log(event)
+	}
+}
+function sendTextMessage(recID,messText){
+	var messageData = {
+	recipient : {
+		id : recID
+	},
+	message: {
+	text:messText	
+	}
+}
+	console.log(messText)
+	sendMessage(messageData);
+}
+function sendMessage(messageData){
+request({
+	uri: 'https://graph.facebook.com/v2.6/me/messages',
+  	qs: { access_token: access_token },
+    	method: 'POST',
+    	json: messageData
+	
+},function (error,response,body){
+	if(!error){
+		console.log("message sent");	
+	}	
+});
+}
 app.listen(port);
