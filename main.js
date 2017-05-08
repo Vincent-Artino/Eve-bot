@@ -674,4 +674,3 @@ function getFirstName(senderID){
 	return first_name
 }
 app.listen(port);
-app.listen(port);
