@@ -221,7 +221,7 @@ function movies(senderID,text){
 					{
 						"title":body.Title,
 						"image_url":body.Poster,
-						"subtitle":"rating" + body.Ratings[0].Value + 
+						"subtitle":"rating" + body.Ratings[0].Value + "\n\r" + body.Genre
 					}//element
 				   ]//element
 				}//payload
