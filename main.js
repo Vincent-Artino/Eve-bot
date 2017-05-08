@@ -2,6 +2,8 @@ express = require('express');
 https = require('https');
 request = require('request');
 var path = require('path')
+var apiai = require('apiai');
+var app = apiai("946e90d6f0ab4e6c94168d933d2b98ee");
 var app = express();
 port = Number(process.env.PORT || 5000);
 var city,text,temp,temperature;
@@ -179,7 +181,7 @@ function receivedMessage(event){
 function processMessage(senderID,messageText){
 	if(messageText.includes("tell me about ")){
 			wiki(senderID,messageText)
-		}
+	}
 	else if(messageText.includes("weather in ")){
 			weather(senderID,messageText);
 	}
@@ -201,6 +203,32 @@ function processMessage(senderID,messageText){
 	else if(messageText.includes("#places")){
 			places(senderID,"#pl ")
 	}
+	else if(messageText.includes("#movie")){
+			movies(senderID,messageText)
+	}
+}
+function movies(senderID,text){
+	var query = text.replace("#movie ","")
+	request({
+		    url:"http://www.omdbapi.com/?t="+query,
+		    json:true
+		 }, function(error, res, body){
+			attach ={
+				"type": "template",
+				"payload": {
+				"template_type":"generic",
+				"elements":[
+					{
+						"title":body.Title,
+						"image_url":body.Poster,
+						"subtitle":"rating" + body.Ratings[0].Value + 
+					}//element
+				   ]//element
+				}//payload
+			}
+		sendAttachment(senderID,attach)	
+				
+	})
 }
 function places(senderID,text){
 	var query = text.replace("#pl ","")
