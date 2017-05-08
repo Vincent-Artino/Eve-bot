@@ -221,7 +221,11 @@ function movies(senderID,text){
 					{
 						"title":body.Title,
 						"image_url":body.Poster,
-						"subtitle":"rating" + body.Ratings[0].Value + "\n\r" + body.Genre
+						"subtitle":"rating " + body.Ratings[0].Value + "\n\r" + body.Genre,
+						"default_action": {
+						      "type": "web_url",
+						      "url":"http://www.imdb.com/title/"+body.imdbID,
+						}
 					}//element
 				   ]//element
 				}//payload
