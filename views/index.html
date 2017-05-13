@@ -13,7 +13,7 @@
 }(document, 'script', 'Messenger'));
 
 window.extAsyncInit = function () {
-    // the Messenger Extensions JS SDK is done loading
+    alert("in this ting")
     MessengerExtensions.getUserID(function success(uids) {
         var psid = uids.psid;
         alert(psid);
@@ -22,7 +22,5 @@ window.extAsyncInit = function () {
     });
 };
 </script>  
-    <button onclick = "clicked()" width = 100px height = "100px">Click me</button>
-    <p id = "p" > help</p>
   </body>
 </html>
