@@ -73,7 +73,7 @@ var persistentMenu = {
         {
           "type":"web_url",
           "title":"Help",
-	  "url":"https://lavender-shade.herokuapp.com/"	,
+	  "url":"https://eve-bota.herokuapp.com/"	,
 	  "webview_height_ratio":"tall"
 
         },
