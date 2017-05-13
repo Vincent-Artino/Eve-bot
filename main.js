@@ -86,9 +86,9 @@ var persistentMenu = {
     }
   ]
 }
-threadSetUp(GetStartedButton)
-threadSetUp(greetingText)
-threadSetUp(persistentMenu)
+// threadSetUp(GetStartedButton)
+// threadSetUp(greetingText)
+// threadSetUp(persistentMenu)
 webViewSetUp()
 app.post('/webhook', function (req, res) {
 	var data = req.body;
@@ -680,7 +680,7 @@ request({
 }
 function webViewSetUp(){
 var data = {"whitelisted_domains":[
-    "https://lavender-shade.herokuapp.com/"
+    "https://eve-bota.herokuapp.com/"
   ]}
 request({
 		uri: 'https://graph.facebook.com/v2.6/me/messenger_profile?access_token='+access_token,
