@@ -86,8 +86,8 @@ var persistentMenu = {
     }
   ]
 }
-//threadSetUp(GetStartedButton)
-//threadSetUp(greetingText)
+threadSetUp(GetStartedButton)
+threadSetUp(greetingText)
 threadSetUp(persistentMenu)
 webViewSetUp()
 app.post('/webhook', function (req, res) {
