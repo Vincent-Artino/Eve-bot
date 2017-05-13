@@ -13,8 +13,7 @@
       }(document, 'script', 'Messenger'));
       MessengerExtensions.getUserID(function success(uids) {
   	  // User ID was successfully obtained. 
-      var psid = uids.psid;
-  
+      psid = uids.psid;
       }, function error(err, errorMessage) {      
   	  // Error handling code
       });    
@@ -22,7 +21,7 @@
         // the Messenger Extensions JS SDK is done loading 
       };
       function clicked(){
-        document.getElementById("p").innerHTML = "heyya" 
+        document.getElementById("p").innerHTML = "heyya " +psid
       }
 </script>
     <button onclick = "clicked()" width = 100px height = "100px">Click me</button>
