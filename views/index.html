@@ -11,14 +11,15 @@
       js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
       fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'Messenger'));
-      MessengerExtensions.getUserID(function success(uids) {
-  	  // User ID was successfully obtained. 
-      psid = uids.psid;
-      }, function error(err, errorMessage) {      
-  	  // Error handling code
-      });    
+       
       window.extAsyncInit = function() {
-        // the Messenger Extensions JS SDK is done loading 
+         MessengerExtensions.getUserID(function success(uids) {
+  	       // User ID was successfully obtained. 
+           psid = uids.psid;
+           document.getElementById("p").innerHTML = psid;
+        }, function error(err, errorMessage) {      
+        // Error handling code
+        });  
       };
       function clicked(){
         document.getElementById("p").innerHTML = "heyya " +psid
