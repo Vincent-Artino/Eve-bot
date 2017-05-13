@@ -13,6 +13,8 @@
       }(document, 'script', 'Messenger'));
        
       window.extAsyncInit = function() {
+          document.getElementById("p").innerHTML = "in the ting "
+     
          MessengerExtensions.getUserID(function success(uids) {
   	       // User ID was successfully obtained. 
            psid = uids.psid;
@@ -22,7 +24,7 @@
         });  
       };
       function clicked(){
-        document.getElementById("p").innerHTML = "heyya " +psid
+        document.getElementById("p").innerHTML = "heyya "
       }
 </script>
     <button onclick = "clicked()" width = 100px height = "100px">Click me</button>
